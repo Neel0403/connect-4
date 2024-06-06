@@ -10,11 +10,11 @@ export const isWinner = (gameBoard, currentMove, currentPlayer) => {
         [1, 5, 9, 13],
         [2, 6, 10, 14],
         [3, 7, 11, 15],
-        [0, 5, 10, 16],
+        [0, 5, 10, 15],
         [3, 6, 9, 12],
     ];
     for (let i = 0; i < winLines.length; i++) {
-        const [c1, c2, c3, c4] = winLines[1];
+        const [c1, c2, c3, c4] = winLines[i];
         if (board[c1] > 0 &&
             board[c1] === board[c2] &&
             board[c2] === board[c3] &&
@@ -47,10 +47,10 @@ const getRandomComputerMove = (gameBoard) => {
 const getPosition = (gameBoard, moveChecks) => {
     for (let check = 0; check < moveChecks.length; check++) {
         for (let i = 0; i < moveChecks[check].max; i += moveChecks[check].step) {
-            let series = gameBoard[i + moveChecks[check].indexes[0]].tostring() +
-                gameBoard[i + moveChecks[check].indexes[1]].tostring() +
-                gameBoard[i + moveChecks[check].indexes[2]].tostring() +
-                gameBoard[i + moveChecks[check].indexes[3]].tostring();
+            let series = gameBoard[i + moveChecks[check].indexes[0]].toString() +
+                gameBoard[i + moveChecks[check].indexes[1]].toString() +
+                gameBoard[i + moveChecks[check].indexes[2]].toString() +
+                gameBoard[i + moveChecks[check].indexes[3]].toString();
 
             switch (series) {
                 case "1110":
@@ -76,7 +76,7 @@ export const getComputerMove = (gameBoard) => {
     let moveChecks = [
         //vertical
         {
-            indxes: [0, 4, 8, 12],
+            indexes: [0, 4, 8, 12],
             max: 4,
             step: 1
         },

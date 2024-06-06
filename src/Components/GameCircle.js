@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Game.css';
-import GameBoard from './GameBoard';
 
 const GameCircle = ({ id, children, className, onCircleClicked }) => {
     return (
